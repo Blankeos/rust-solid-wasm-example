@@ -1,52 +1,11 @@
-# 🐇 Solid Hop
+## Rust Solid WASM Example
 
-💙 A **minimal** and **unopinionated** Vike + Solid + Hono starter.
+Steps I did (as notes):
 
-❤️ We love Vike and Solid, but it might be overwhelming to setup. The goal of this starter is to get you up and running quickly with good defaults without getting in the way of your opinions.
-
-This is more or less what you would get from a starter with `create next-app` or `create svelte` or `create solid`.
-
-If you want a more opinionated and fully-featured boilerplate instead: http://github.com/blankeos/solid-launch
-
-## Tech Stack:
-
-1. Vike + Hono - For SSR + Your own Server.
-2. SolidJS
-3. Bun (Can swap this with Node easily if you want).
-4. Tools: ESLint, Prettier
-
-## Quick Start
-
-1. Clone
-
-```sh
-git clone https://github.com/blankeos/solid-hop <your-app-name>
-cd <your-app-name>
-rm -rf .git # This is your app. Start the commits fresh :D
-```
-
-1. Install
-
-```sh
-bun install
-```
-
-3. Run dev server
-
-```sh
-bun dev
-```
-
-## Building and Deployment
-
-1. Build
-
-```sh
-bun run build
-```
-
-2. Wherever you deploy, just run make sure that this is ran:
-
-```sh
-bun run preview # Just runs server.ts
-```
+1. Create this Solid project.
+2. Install Rust
+3. Install wasm-pack (Use cargo)
+4. Create a new Rust project: `cargo new --lib hello-wasm`
+5. In Cargo.toml, add `wasm-bindgen` as a dependency. (Handles the JS -> Rust communication type generation)
+6. Write on the `lib.rs` (Make a function that I can use. Also call the prelude and macro for wasm_bindgen to setup)
+7. Run `wasm-pack build --target web` on the `hello-wasm` project. It will create a `pkg` folder witht he compiled wasm files (Important files: `.wasm` the module, `.js` for imports, and `.d.ts` for types - I think self-explanatory).

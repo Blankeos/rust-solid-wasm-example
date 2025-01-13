@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "bunx --bun vite --host",
     "build": "vite build",
+    "build:wasm": "cd hello-wasm && wasm-pack build --target web",
     "preview": "NODE_ENV=production bun run ./server.ts",
     "preview-static": "vite preview",
     "lint": "prettier --check .; eslint .; tsc --noEmit;",
