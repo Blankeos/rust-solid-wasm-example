@@ -2,7 +2,7 @@ import getTitle from "@/utils/get-title";
 import { createSignal, onMount } from "solid-js";
 import { createStore } from "solid-js/store";
 import { useMetadata } from "vike-metadata-solid";
-import init, { add, run_100_000_iterations } from "../../hello-wasm/pkg/hello_wasm";
+import init, { add, process_array, run_100_000_iterations } from "../../hello-wasm/pkg/hello_wasm";
 
 export default function Page() {
   useMetadata({
@@ -79,6 +79,15 @@ export default function Page() {
         <button onClick={run100_000Iterations}>Run!</button>
         <p>JS: {iterationsResult.js}</p>
         <p>Rust: {iterationsResult.rust}</p>
+        <br />
+        <h2>Process CSV</h2>
+        <button
+          onClick={() => {
+            process_array();
+          }}
+        >
+          Process
+        </button>
       </div>
     </>
   );
